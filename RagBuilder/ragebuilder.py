@@ -1,4 +1,3 @@
-import urllib import warnings 
 from pprint import pprint 
 from langchain import PromptTemplate 
 from langchain.chains.question_answering import load_qa_chain 
@@ -6,7 +5,6 @@ from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter 
 from langchain.vectorstores import Chroma 
 from langchain.chains import RetrievalQA 
-warnings.filterwarnings("ignore") # restart python kernal if issues with langchain import. 
 from langchain_google_genai import GoogleGenerativeAIEmbeddings,ChatGoogleGenerativeAI
 from .utils import to_markdown
 
