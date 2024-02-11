@@ -1,7 +1,5 @@
 import urllib import warnings 
-from pathlib import Path as p
 from pprint import pprint 
-import pandas as pd 
 from langchain import PromptTemplate 
 from langchain.chains.question_answering import load_qa_chain 
 from langchain.document_loaders import PyPDFLoader 
@@ -9,9 +7,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma 
 from langchain.chains import RetrievalQA 
 warnings.filterwarnings("ignore") # restart python kernal if issues with langchain import. 
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-from langchain_google_genai import ChatGoogleGenerativeAI
-
+from langchain_google_genai import GoogleGenerativeAIEmbeddings,ChatGoogleGenerativeAI
+from .utils import to_markdown
 
 class LangchainGemeni:
 
@@ -39,6 +36,8 @@ class LangchainGemeni:
         return  vector_index  
 
 
-    def BuildQA(self,return_source_documents=True)->str:
+    def BuildQA(self,return_source_documents=True,to_markdown=False)->str:
         qa_chain = RetrievalQA.from_chain_type( self.client, retriever=self.vector_index, return_source_documents=False)
+        if to_markdown:
+            return to_markdown(qa_chain)
         return qa_chain
