@@ -1,4 +1,0 @@
-chromadb
-google-generativeai
-langchain-google-genai
-pypdf
