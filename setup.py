@@ -12,7 +12,7 @@ setup(
       ],
     author='Loaii abdalslam',
     author_email='loaiabdalslam@gmail.com',
-    description='RAG Builder Applications using Gemeni and Google Embeddings and Chromadb.',
+    description='RAG Builder For Applications using Gemeni and Google Embeddings and Chromadb.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/loaiabdalslam/Ragbuilder',
